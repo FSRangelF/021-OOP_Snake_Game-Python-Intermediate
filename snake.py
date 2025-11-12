@@ -1,6 +1,11 @@
 from turtle import Turtle
 import random
 
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
+
 class Snake:
     
     def __init__(self, start_pos, default_step):
@@ -10,37 +15,35 @@ class Snake:
         self.create_snake()
         self.head = self.snake_segments[0]
     
-    def create_snake():
+    def create_snake(self):
         for index in range(3):
             segment = Turtle(shape="square")
             segment.color("white")
             segment.penup()
             segment.setposition(self.start_position[index])
             self.snake_segments.append(segment)
-            return
 
     def move(self):
         for index in range (len(self.snake_segments)-1, 0, -1):
-        new_position = self.snake_segments[index-1].position()
-        self.snake_segments[index].setposition(new_position)
-        self.snake_segments[0].forward(self.step)
-        return
-    
+            new_position = self.snake_segments[index-1].position()
+            self.snake_segments[index].setposition(new_position)
+        self.head.forward(self.step)
+            
     def right(self):
-        if self.head.heading() != 180:
-            self.head.setheading(0)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
 
     def left(self):
-        if self.head.heading() != 0:
-            self.head.setheading(180)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
     
     def up(self):
-        if self.head.heading() != 270:
-            self.head.setheading(90)
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
 
     def down(self):
-        if self.head.heading() != 90:
-            self.head.setheading(270)
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
 
     def increase_snake_size(self):
         segment = Turtle(shape="square")
