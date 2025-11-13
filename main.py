@@ -9,6 +9,7 @@ STARTING_POSITIONS = [(0,0), (-20, 0), (-40, 0)]
 MOVE_STEP = 20
 SCREENSIZE = 600
 DELAY = 0.1
+speed_factor = 1
 
 # setup screen
 screen = Screen()
@@ -58,10 +59,9 @@ while not game_over:
             score.game_over()
 
     # increase speed as the score increases
-    if score.score < 10:
-        speed_factor = 1
-    else:
-        speed_factor = score.score // 5
-    time.sleep(DELAY/speed_factor)
+    if score.score % 5 == 0:
+        speed_factor = 1 - score.score/50
+        print(speed_factor, DELAY*speed_factor)
+    time.sleep(DELAY*speed_factor)
 
 screen.exitonclick()

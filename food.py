@@ -13,6 +13,6 @@ class Food(Turtle):
         self.position_food()
 
     def position_food(self):
-        food_x = self.step*random.randint(int(-1*(self.screen_size-self.step)/(2*self.step)), int((self.screen_size-self.step)/(2*self.step)))
-        food_y = self.step*random.randint(int(-1*(self.screen_size-self.step)/(2*self.step)), int((self.screen_size-self.step)/(2*self.step)))
+        food_x = self.step*random.randint(int(-1*(self.screen_size-3*self.step)/(2*self.step)), int((self.screen_size-3*self.step)/(2*self.step)))
+        food_y = self.step*random.randint(int(-1*(self.screen_size-3*self.step)/(2*self.step)), int((self.screen_size-3*self.step)/(2*self.step)))
         self.teleport(x=food_x, y=food_y)
