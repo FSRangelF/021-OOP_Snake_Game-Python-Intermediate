@@ -61,7 +61,6 @@ while not game_over:
     # increase speed as the score increases
     if score.score % 5 == 0:
         speed_factor = 1 - score.score/50
-        print(speed_factor, DELAY*speed_factor)
     time.sleep(DELAY*speed_factor)
 
 screen.exitonclick()
