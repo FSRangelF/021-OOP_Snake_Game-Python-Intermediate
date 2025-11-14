@@ -31,9 +31,9 @@ class Score(Turtle):
         self.write(arg="GAME OVER",  align=ALIGMENT, font=FONT)
 
     def check_hi_score(self):
-        with open("021-OOP_Snake_Game-Python-Intermediate/hi_score.txt") as file:
+        with open("hi_score.txt") as file:
             self.hi_score = int(file.read())
 
     def update_hi_score(self):
-        with open("021-OOP_Snake_Game-Python-Intermediate/hi_score.txt", 'w') as file:
+        with open("hi_score.txt", 'w') as file:
             file.write(f'{self.hi_score}')
